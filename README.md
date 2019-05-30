@@ -8,6 +8,7 @@ docker run -d \
         --name vvintan0 \
         --restart always \
         -e IPADDRESS="<ip to cam>" \
+        -e TZ=America/Moncton \
         --name vvintan0 \
         -v /mnt/photos/Syncs/Camera:/output \
         -v /etc/airnef:/opt/airnef/appdata \
