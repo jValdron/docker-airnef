@@ -1,4 +1,4 @@
-FROM debian:stable
+FROM alpine:latest
 
 # Config
 ARG version=1.1
@@ -9,8 +9,8 @@ ENV REALTIMEDOWNLOAD=afternormal
 
 # "Build"
 WORKDIR /opt
-ADD $source ./airnef.tar.gz
-RUN tar -xf ./airnef.tar.gz
+RUN wget --no-check-certificate $source
+RUN tar -xf airnef_v${version}_Linux_Binary.tar.gz
 
 # Run
 ENTRYPOINT /opt/airnef/airnefcmd --ipaddress $IPADDRESS --realtimedownload $REALTIMEDOWNLOAD --outputdir /output
